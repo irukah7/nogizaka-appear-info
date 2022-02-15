@@ -15,7 +15,7 @@ $ poetry update
 
 venv内に入る
 ```
-$ poery shell
+$ poetry shell
 ```
 実行する
 ```
