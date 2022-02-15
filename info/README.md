@@ -5,7 +5,7 @@ $ cd info
 ```
 
 必要なパッケージを pyproject.toml に追加し、インストールするコマンド
-```toml
+```
 $ poetry add beautifulsoup4 requests
 ```
 仮想環境にインストールされているパッケージを最新バージョンに更新する
