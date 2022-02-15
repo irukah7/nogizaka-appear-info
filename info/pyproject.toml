@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "info"
+version = "0.1.0"
+description = ""
+authors = ["森谷光 <hik-moriya@winc.co.jp>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Scrapy = "^2.5.1"
+beautifulsoup4 = "^4.10.0"
+requests = "^2.27.1"
+streamlit = "^1.5.1"
+Flask = "^2.0.2"
+line-bot-sdk = "^2.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
