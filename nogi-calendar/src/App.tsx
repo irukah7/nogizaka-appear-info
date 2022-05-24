@@ -16,7 +16,7 @@ export interface infoList {
 function App() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:5000/noginfo')
+    axios.get('http://localhost:5000/hinatainfo')
         .then(res => {
           setPosts(res.data)
         })
@@ -29,6 +29,9 @@ function App() {
                     locales={allLocales}
                     locale='ja'
                     events={infoList}
+                    eventClick={function(item){
+                      alert(item.event.title)
+                    }}
                     navLinks={true}
                     editable={true}
                     businessHours={true}
@@ -52,12 +55,19 @@ function makeList(posts: any): infoList[] {
   Object.keys(posts).map(post => {
     posts[post].map((p: any) => {
       let splitTime = ("0" + p.split(':')[0]).slice(-2)
-      console.log(p.split(' ').slice(1, p.split(' ').length))
-      infoList.push({
-        title: p.split(' ').slice(1, p.split(' ').length),
-        start: String(year) + '-' + String(month) + '-' + String("0"+post).slice(-2) + 'T' + splitTime + ':00:00',
-        end: ''
-      })
+      if(p.split('***')[0].length==0){
+        infoList.push({
+          title: p.split('***').slice(1),
+          start: String(year) + '-' + String(month) + '-' + String("0"+post).slice(-2),
+          end: ''
+        })
+      }else{
+        infoList.push({
+          title: p.split('***').slice(1),
+          start: String(year) + '-' + String(month) + '-' + String("0"+post).slice(-2) + 'T' + splitTime + ':00:00',
+          end: ''
+        })
+      }
     })
   })
   return infoList
